@@ -1,0 +1,86 @@
+:root {
+  --background-color: #d9d9d9;
+  --background-image: linear-gradient(315deg, #d9d9d9 -30%, #f6f2f2 74%);
+  --border-radius: 0.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-family: 'Lato', sans-serif;
+  background: whitesmoke;
+}
+
+#calculator {
+  width: 80%;
+  max-width: 350px;
+  background: lightcoral;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 5px #cccccc;
+
+  display: grid;
+  gap: 1rem;
+}
+
+#output {
+  position: relative;
+  border-radius: var(--border-radius);
+  padding: 0 1rem;
+
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+}
+
+#preview {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.8rem;
+}
+
+#current-val {
+  text-align: right;
+  margin: 2.25rem 0 1rem 0;
+}
+
+#button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  border: 1px dotted whitesmoke;
+}
+
+.button {
+  width: 20%;
+  margin: 2.5%;
+  height: 3em;
+  display: grid;
+  place-items: center;
+
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  border: none;
+  border-radius: var(--border-radius);
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.button:last-of-type {
+  width: 45%;
+}
