@@ -3,10 +3,12 @@ const form = document.getElementById('form')
 const totalBill = document.getElementById('bill')
 const totalPeople = document.getElementById('people')
 const tipPercentage = document.getElementById('percentage')
+const percentageOutput = document.getElementById('percentage-output')
 const output = document.getElementById('output')
 
 // event listeners ==========
 form.addEventListener('change', calculateTip)
+tipPercentage.oninput = calculateTip
 
 // event handlers ==========
 function calculateTip() {
@@ -16,10 +18,20 @@ function calculateTip() {
   ).toFixed(2)
 
   displayTip(`$${dollarsPerPerson}`)
+  displayPercentage()
 }
 
 // helper functions ==========
 function displayTip(totalPerPerson) {
-  console.log(totalPerPerson)
-  output.innerText = `Each person should tip ${totalPerPerson}`
+  output.innerText =
+    totalPeople.value > 1
+      ? `Each person should tip ${totalPerPerson}`
+      : `You should tip ${totalPerPerson}`
 }
+
+function displayPercentage() {
+  percentageOutput.innerText = `${tipPercentage.value}%`
+}
+
+// on load ==========
+calculateTip()

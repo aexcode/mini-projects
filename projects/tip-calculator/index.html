@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google fonts: lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
     <!-- normalize css reset -->
     <link
       rel="stylesheet"
@@ -16,12 +23,20 @@
   <body>
     <div id="tip-calculator">
       <h1>Tip Calculator</h1>
-      <div id="output"></div>
+      <div id="output" class="h3"></div>
       <form id="form">
-        <label for="bill">
-          Bill: <input type="number" min="0" step="0.01" nam"bill" id="bill"/>
+        <label for="bill" class="h3">
+          Bill: $
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            value="50"
+            name="bill"
+            id="bill"
+          />
         </label>
-        <label for="people">
+        <label for="people" class="h3">
           People:
           <input
             type="number"
@@ -32,8 +47,9 @@
             id="people"
           />
         </label>
-        <label for="percentage">
+        <label for="percentage" class="h3">
           Tip Percentage:
+          <span id="percentage-output"></span>
           <input
             type="range"
             min="0"
