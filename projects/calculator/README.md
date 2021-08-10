@@ -14,7 +14,9 @@ HTML | CSS | JavaScript
 
 ## Features:
 
-- [x] Users can evaluate equations using addition, subtraction, multiplication, division, and exponents.
-- [x] Users can clear the calculator
-- [x] Users can undo (delete) the previous action
-- [x] Users can continue an equation after evaluating the current equation
+- [x] Addition, subtraction, multiplication, division, exponents
+- [x] Clear calculator and history
+- [x] Delete / undo previous action
+- [x] Continue equation after evaluation
+- [x] Start new equation after evaluation
+- [x] Format larger / longer numbers
