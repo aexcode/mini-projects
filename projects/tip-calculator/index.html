@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize css reset -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./style.css" />
+    <title>Tip Calculator</title>
+  </head>
+  <body>
+    <div id="tip-calculator">
+      <h1>Tip Calculator</h1>
+      <div id="output"></div>
+      <form id="form">
+        <label for="bill">
+          Bill: <input type="number" min="0" step="0.01" nam"bill" id="bill"/>
+        </label>
+        <label for="people">
+          People:
+          <input
+            type="number"
+            min="1"
+            step="1"
+            value="1"
+            name="people"
+            id="people"
+          />
+        </label>
+        <label for="percentage">
+          Tip Percentage:
+          <input
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value="20"
+            name="percentage"
+            id="percentage"
+          />
+        </label>
+      </form>
+    </div>
+    <!-- custom javascript -->
+    <script src="./script.js"></script>
+  </body>
+</html>
