@@ -1,0 +1,126 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  background: whitesmoke;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1,
+.h1 {
+  text-align: center;
+  margin: 3rem 0 1.38rem;
+  margin-top: 0;
+  font-size: 1.802rem;
+}
+
+h2,
+.h2 {
+  margin: 1.38rem 0;
+  font-size: 1.602rem;
+}
+
+h3,
+.h3 {
+  margin: 1.38rem 0;
+  font-size: 1.424rem;
+}
+
+#tip-calculator {
+  width: 80%;
+  max-width: 350px;
+  padding: 1rem;
+  background: hsl(149, 31%, 80%);
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px hsl(149, 31%, 25%);
+}
+
+#output {
+  text-align: center;
+}
+
+form {
+  border-top: 1px solid hsl(149, 31%, 25%);
+}
+
+label {
+  display: block;
+}
+
+input[type='number'] {
+  width: 100%;
+  max-width: 4em;
+  background: none;
+  border: none;
+  border-bottom: 1px dashed black;
+
+  /* Hide spinners and steppers - Firefox */
+  -moz-appearance: textfield;
+}
+
+/* Hide spinners and steppers - Chrome, Safari, Edge, Opera */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#people {
+  max-width: 3em;
+}
+
+#percentage {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 2rem 0;
+  height: 10px;
+  background: hsl(149, 31%, 25%);
+  border-radius: 3px;
+}
+
+#percentage::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: hsl(149, 31%, 98%);
+  cursor: pointer;
+}
+
+#percentage::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: hsl(149, 31%, 98%);
+  border-radius: 50%;
+  cursor: pointer;
+}
