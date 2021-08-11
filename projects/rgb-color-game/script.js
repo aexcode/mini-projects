@@ -22,7 +22,7 @@ function handleNavigation(e) {
     if (item.section.id === e.target.hash.slice(1)) {
       item.link.classList.add('nav-link-active')
       item.section.classList.remove('display-none')
-      if (item.section.id === 'game') generateColors()
+      if (item.section.id === 'game') startGame()
       return
     } else {
       item.link.classList.remove('nav-link-active')
@@ -51,6 +51,10 @@ function displayColors() {
   })
 }
 
+function startGame() {
+  generateFillColors()
+  displayColors()
+}
+
 // on load ==========
-generateFillColors()
-displayColors()
+startGame()
