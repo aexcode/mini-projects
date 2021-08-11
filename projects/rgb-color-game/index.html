@@ -5,12 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- google fonts: lato -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-      rel="stylesheet"
-    />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> 
     <!-- normalize css reset -->
     <link
       rel="stylesheet"
@@ -18,7 +15,7 @@
     />
     <!-- custom css -->
     <link rel="stylesheet" href="./style.css" />
-    <title>HSL Color Game</title>
+    <title>RGB Color Game</title>
   </head>
   <body>
     <div id="container">
@@ -29,13 +26,21 @@
       </nav>
       <main>
         <section id="about" class="display-none">
-          <h1>About HSL</h1>
+          <h1>About RGB</h1>
         </section>
         <section id="score" class="display-none">
           <h1>Your Score</h1>
         </section>
         <section id="game">
-          <h1>HSL Color Game</h1>
+          <h1>RGB Color Game</h1>
+          <p class='blurb h5'>Pick the color with the following RGB value:</p>
+          <h3 id="rgb"></h2>
+					<div class="colors">
+						<div class="color"></div>
+						<div class="color"></div>
+						<div class="color"></div>
+						<div class="color"></div>
+					</div>
         </section>
       </main>
     </div>

@@ -35,17 +35,21 @@ h1,
 h2,
 .h2,
 h3,
-.h3 {
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
   margin: 3rem 0 1.38rem;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   line-height: 1.3;
+  text-align: center;
 }
 
 h1,
 .h1 {
   font-size: 2.488rem;
-  text-align: center;
 }
 
 h2,
@@ -58,11 +62,13 @@ h3,
   font-size: 1.728rem;
 }
 
-h4 {
+h4,
+.h4 {
   font-size: 1.44rem;
 }
 
-h5 {
+h5,
+.h5 {
   font-size: 1.2rem;
 }
 
@@ -70,7 +76,6 @@ small,
 .text-small {
   font-size: 0.833rem;
 }
-
 a {
   text-decoration: none;
   cursor: pointer;
@@ -111,7 +116,41 @@ section {
   padding: 1rem 2rem;
 }
 
+/* GAME SECTION ========== */
+.blurb {
+  margin-top: 0;
+  text-align: center;
+  font-weight: 300;
+}
+
+#rgb {
+  margin-top: 0;
+}
+
+.colors {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  margin: auto;
+}
+
+.color {
+  width: 150px;
+  height: 150px;
+}
+
 /* HELPER CLASSES ========== */
 .display-none {
   display: none;
+}
+
+/* MEDIA QUERIES ========== */
+@media only screen and (min-width: 850px) {
+  /* GAME SECTION ========== */
+  .colors {
+    width: 800px;
+  }
 }
