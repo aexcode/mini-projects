@@ -10,6 +10,11 @@ const navigation = [...document.getElementsByClassName('nav-link')].map(
 const prompt = document.getElementById('prompt')
 const colors = [...document.getElementsByClassName('color')]
 const fillColors = []
+const stats = JSON.parse(localStorage.getItem('aexColorGameStats')) || {
+  score: 0,
+  currentStreak: 0,
+  longestStreak: 0,
+}
 
 // event listeners ==========
 navigation.forEach(({ link }) =>
@@ -75,13 +80,30 @@ function displayColors() {
 }
 
 function alertWinner() {
+  // update stats
+  stats.score++
+  stats.currentStreak++
+  if (stats.currentStreak > stats.longestStreak) {
+    stats.longestStreak = stats.currentStreak
+  }
+
+  // save stats to local storage
+  localStorage.setItem('aexColorGameStats', JSON.stringify(stats))
+
   prompt.innerText = 'Winner, Winner!'
-  setTimeout(startGame, 3000)
+  setTimeout(startGame, 2000)
 }
 
 function alertLoser() {
+  // update stats
+  stats.score >= 1 ? stats.score-- : (stats.score = 0)
+  stats.currentStreak = 0
+
+  // save stats to local storage
+  localStorage.setItem('aexColorGameStats', JSON.stringify(stats))
+
   prompt.innerText = 'Better luck next time...'
-  setTimeout(startGame, 3000)
+  setTimeout(startGame, 2000)
 }
 
 function startGame() {
@@ -91,3 +113,4 @@ function startGame() {
 
 // on load ==========
 startGame()
+// localStorage.clear()
