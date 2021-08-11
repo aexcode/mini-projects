@@ -15,12 +15,17 @@ const stats = JSON.parse(localStorage.getItem('aexColorGameStats')) || {
   currentStreak: 0,
   longestStreak: 0,
 }
+const scoreDisplay = document.getElementById('score')
+const currentStreakDisplay = document.getElementById('current-streak')
+const longestStreakDisplay = document.getElementById('longest-streak')
+const resetStatsBtn = document.getElementById('reset-stats')
 
 // event listeners ==========
 navigation.forEach(({ link }) =>
   link.addEventListener('click', handleNavigation),
 )
 colors.forEach((color) => color.addEventListener('click', handleGuess))
+resetStatsBtn.addEventListener('click', resetStats)
 
 // event handlers ==========
 function handleNavigation(e) {
@@ -42,6 +47,7 @@ function handleGuess(e) {
   colors.forEach((color) => {
     color.style.pointerEvents = 'none'
 
+    // show visual feedback
     if (color.style.backgroundColor !== prompt.innerText) {
       color.innerHTML = `<i class='bx bx-x-circle' ></i>`
       color.style.color = color.style.backgroundColor
@@ -49,11 +55,14 @@ function handleGuess(e) {
     }
   })
 
-  if (e.target.style.backgroundColor === prompt.innerText) {
-    alertWinner()
-  } else {
-    alertLoser()
-  }
+  // update score
+  updateScore(e.target.style.backgroundColor === prompt.innerText)
+
+  // save stats to local storage
+  localStorage.setItem('aexColorGameStats', JSON.stringify(stats))
+
+  // reset game
+  setTimeout(startGame, 2000)
 }
 
 // helper functions ==========
@@ -79,31 +88,37 @@ function displayColors() {
   })
 }
 
-function alertWinner() {
-  // update stats
-  stats.score++
-  stats.currentStreak++
-  if (stats.currentStreak > stats.longestStreak) {
-    stats.longestStreak = stats.currentStreak
+function updateScore(playerHasWon) {
+  if (playerHasWon) {
+    // win State
+    stats.score++
+    stats.currentStreak++
+    if (stats.currentStreak > stats.longestStreak) {
+      stats.longestStreak = stats.currentStreak
+      prompt.innerText = 'Winner, Winner!'
+    }
+  } else {
+    // lose State
+    stats.score >= 1 ? stats.score-- : (stats.score = 0)
+    stats.currentStreak = 0
+    prompt.innerText = 'Better luck next time...'
   }
 
-  // save stats to local storage
-  localStorage.setItem('aexColorGameStats', JSON.stringify(stats))
-
-  prompt.innerText = 'Winner, Winner!'
-  setTimeout(startGame, 2000)
+  displayStats()
 }
 
-function alertLoser() {
-  // update stats
-  stats.score >= 1 ? stats.score-- : (stats.score = 0)
+function displayStats() {
+  scoreDisplay.innerText = stats.score
+  currentStreakDisplay.innerText = stats.currentStreak
+  longestStreakDisplay.innerText = stats.longestStreak
+}
+
+function resetStats() {
+  stats.score = 0
   stats.currentStreak = 0
-
-  // save stats to local storage
-  localStorage.setItem('aexColorGameStats', JSON.stringify(stats))
-
-  prompt.innerText = 'Better luck next time...'
-  setTimeout(startGame, 2000)
+  stats.longestStreak = 0
+  localStorage.removeItem('aexColorGameStats')
+  displayStats()
 }
 
 function startGame() {
@@ -112,5 +127,5 @@ function startGame() {
 }
 
 // on load ==========
+displayStats()
 startGame()
-// localStorage.clear()

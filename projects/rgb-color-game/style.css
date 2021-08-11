@@ -1,6 +1,8 @@
 :root {
   --color-neutral-100: hsl(0, 0%, 96%);
   --color-neutral-600: hsl(0, 0%, 16%);
+  --color-error-100: hsl(357, 60%, 55%);
+  --color-error-200: hsl(357, 60%, 45%);
   --color-primary: steelblue;
 }
 
@@ -146,6 +148,31 @@ section {
   justify-content: center;
   align-items: center;
   font-size: 11rem;
+}
+
+/* STATS SECTION ========== */
+
+.stats {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.stats .h3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#reset-stats {
+  margin: 2rem auto;
+  background: none;
+  color: var(--color-error-100);
+  border: none;
+  cursor: pointer;
+}
+
+#reset-stats:hover {
+  color: var(--color-error-200);
 }
 
 /* HELPER CLASSES ========== */
