@@ -2,7 +2,14 @@
 
 <!-- **Live Demo:** [https://codepen.io/aexcode/full/MWmZmmR](https://codepen.io/aexcode/full/MWmZmmR) -->
 
-![](https://i.imgur.com/udMQUOz.png)
+![](./assets/rgb-color-game-01.png)
+
+## Screenshots
+
+<img src="./assets/rgb-color-game-01.png" width='200px'>
+<img src="./assets/rgb-color-game-02.png" width='200px'>
+<img src="./assets/rgb-color-game-03.png" width='200px'>
+<img src="./assets/rgb-color-game-04.png" width='200px'>
 
 ## Description:
 
@@ -14,7 +21,7 @@ HTML | CSS | JavaScript
 
 ## Features:
 
-- [ ] Menu with information about RGB color values
+- [ ] Menu with information about the game
 - [x] Menu with game stats
 - [x] Tracks user's current and longest streak of correct answers
 - [x] Stores user's game stats in local storage
