@@ -1,0 +1,280 @@
+:root {
+  --color-neutral-100: hsl(0, 0%, 96%);
+  --color-neutral-600: hsl(0, 0%, 16%);
+  --color-error-100: hsl(357, 60%, 55%);
+  --color-error-200: hsl(357, 60%, 45%);
+  --color-primary: steelblue;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--color-neutral-100);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+p {
+  margin-bottom: 1rem;
+  /* font-size: 1.2rem; */
+  /* font-weight: 300; */
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+}
+
+h1,
+.h1 {
+  font-size: 2.488rem;
+}
+
+h2,
+.h2 {
+  font-size: 2.074rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.728rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.44rem;
+}
+
+h5,
+.h5 {
+  font-size: 1.2rem;
+}
+
+small,
+.text-small {
+  font-size: 0.833rem;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+#container {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 100vh;
+  margin: auto;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+#navbar {
+  min-height: 50px;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.138em;
+  color: var(--color-neutral-600);
+}
+
+.nav-link-active {
+  color: var(--color-primary);
+}
+
+section {
+  height: 100%;
+  padding: 1rem 2rem;
+  max-width: 100%;
+}
+
+/* GAME SECTION ========== */
+
+.blurb {
+  margin-top: 0;
+  text-align: center;
+  font-weight: 300;
+}
+
+#prompt {
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.colors {
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  margin: auto;
+}
+
+.color {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11rem;
+}
+
+/* STATS SECTION ========== */
+
+.stats {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.stats .h3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#reset-stats {
+  margin: 2rem auto;
+  background: none;
+  color: var(--color-error-100);
+  border: none;
+  cursor: pointer;
+}
+
+#reset-stats:hover {
+  color: var(--color-error-200);
+}
+
+/* ABOUT SECTION ========== */
+#about {
+  max-width: 85ch;
+  margin: auto;
+}
+
+#about h3 {
+  margin-top: 0;
+}
+
+#example-color {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 1rem;
+  border-radius: 50%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 0.5rem 0;
+  height: 20px;
+  background: transparent;
+  border-radius: 3px;
+}
+
+#slider-red {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(255, 0, 0));
+}
+
+#slider-green {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 255, 0));
+}
+
+#slider-blue {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 255));
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color-neutral-100);
+  cursor: pointer;
+  border: 1px solid var(--color-neutral-600);
+  border-radius: 3px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: var(--color-neutral-100);
+  cursor: pointer;
+  border: 1px solid var(--color-neutral-600);
+  border-radius: 3px;
+}
+
+.slider:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.slider::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* HELPER CLASSES ========== */
+.display-none {
+  display: none;
+}
+
+/* MEDIA QUERIES ========== */
+@media only screen and (min-width: 850px) {
+  /* GAME SECTION ========== */
+  .colors {
+    max-width: 800px;
+  }
+
+  .color {
+    width: 150px;
+    height: 150px;
+  }
+
+  #about h2 {
+    text-align: left;
+  }
+}

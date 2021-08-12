@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- icons: boxicons -->
+		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- google fonts: lato -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> 
+    <!-- normalize css reset -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./style.css" />
+    <title>RGB Color Game</title>
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#stats" class="nav-link">Stats</a>
+        <a href="#game" class="nav-link nav-link-active">Game</a>
+      </nav>
+      <main>
+        <section id="about" class="display-none">
+          <h1>About The Game</h1>
+					<p>The RGB Color Game is a simple guessing game where you're provided with an RGB color value and four different color swatches. Your goal is to select the color swatch that matches that RGB value you've been given. Answer correctly and your score and current streak will go up. Answer incorrectly and your score will go down and your current streak will be reset to zero. </p>
+					
+					<p>RGB color values are written as <code>rgb(red, green, blue)</code>, with each color parameter being replaced with a value between 1 and 255 that represents the intensity of that color in the final result. Use the sliders below to check it out in action.</p>
+					<h3><span id='example-color'></span><span id="example-rgb"></span></h3>
+					<form id="example-color-form">
+						<input id="slider-red" class="slider " type="range" min="0" max="255" value="255" />
+						<input id="slider-green" class="slider" type="range" min="0" max="255" value="0" />
+						<input id="slider-blue" class="slider" type="range" min="0" max="255" value="0" />
+					</form>
+					<p>Knowing this, we can begin to deconstruct the RGB color values we're given in the game to help improve our answers. Head on over to the game and give it a shot!</p>
+        </section>
+        <section id="stats" class="display-none">
+          <h1>Your Stats</h1>
+					<div class="stats">
+						<p class="h3">Score: <span id="score"></span></p>
+						<p class="h3">Current Streak: <span id="current-streak"></span></p>
+						<p class="h3">Longest Streak: <span id="longest-streak"></span></p>
+						<button id="reset-stats" type="button"><i class='bx bx-trash'></i> Reset Stats</button>
+					</div>
+        </section>
+        <section id="game">
+          <h1>RGB Color Game</h1>
+          <p class='blurb h5'>Pick the color with the following value:</p>
+          <h3 id="prompt"></h2>
+					<div class="colors">
+						<div class="color"></div>
+						<div class="color"></div>
+						<div class="color"></div>
+						<div class="color"></div>
+					</div>
+        </section>
+      </main>
+    </div>
+    <!-- custom javascript -->
+    <script src="./script.js"></script>
+  </body>
+</html>
