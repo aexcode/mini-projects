@@ -28,7 +28,17 @@
       </nav>
       <main>
         <section id="about" class="display-none">
-          <h1>About RGB</h1>
+          <h1>About The Game</h1>
+					<p>The RGB Color Game is a simple guessing game where you're provided with an RGB color value and four different color swatches. Your goal is to select the color swatch that matches that RGB value you've been given. Answer correctly and your score and current streak will go up. Answer incorrectly and your score will go down and your current streak will be reset to zero. </p>
+					
+					<p>RGB color values are written as <code>rgb(red, green, blue)</code>, with each color parameter being replaced with a value between 1 and 255 that represents the intensity of that color in the final result. Use the sliders below to check it out in action.</p>
+					<h3><span id='example-color'></span><span id="example-rgb"></span></h3>
+					<form id="example-color-form">
+						<input id="slider-red" class="slider " type="range" min="0" max="255" value="255" />
+						<input id="slider-green" class="slider" type="range" min="0" max="255" value="0" />
+						<input id="slider-blue" class="slider" type="range" min="0" max="255" value="0" />
+					</form>
+					<p>Knowing this, we can begin to deconstruct the RGB color values we're given in the game to help improve our answers. Head on over to the game and give it a shot!</p>
         </section>
         <section id="stats" class="display-none">
           <h1>Your Stats</h1>

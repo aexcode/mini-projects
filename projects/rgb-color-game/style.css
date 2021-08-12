@@ -31,6 +31,8 @@ body {
 
 p {
   margin-bottom: 1rem;
+  /* font-size: 1.2rem; */
+  /* font-weight: 300; */
 }
 
 h1,
@@ -84,6 +86,10 @@ a {
   cursor: pointer;
 }
 
+img {
+  max-width: 100%;
+}
+
 #container {
   width: 100%;
   max-width: 1000px;
@@ -130,6 +136,7 @@ section {
 
 #prompt {
   margin-top: 0;
+  margin-bottom: 3rem;
 }
 
 .colors {
@@ -178,6 +185,78 @@ section {
   color: var(--color-error-200);
 }
 
+/* ABOUT SECTION ========== */
+#about {
+  max-width: 85ch;
+  margin: auto;
+}
+
+#about h3 {
+  margin-top: 0;
+}
+
+#example-color {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 1rem;
+  border-radius: 50%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 0.5rem 0;
+  height: 20px;
+  background: transparent;
+  border-radius: 3px;
+}
+
+#slider-red {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(255, 0, 0));
+}
+
+#slider-green {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 255, 0));
+}
+
+#slider-blue {
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 255));
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color-neutral-100);
+  cursor: pointer;
+  border: 1px solid var(--color-neutral-600);
+  border-radius: 3px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: var(--color-neutral-100);
+  cursor: pointer;
+  border: 1px solid var(--color-neutral-600);
+  border-radius: 3px;
+}
+
+.slider:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.slider::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
 /* HELPER CLASSES ========== */
 .display-none {
   display: none;
@@ -193,5 +272,9 @@ section {
   .color {
     width: 150px;
     height: 150px;
+  }
+
+  #about h2 {
+    text-align: left;
   }
 }

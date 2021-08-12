@@ -19,6 +19,12 @@ const scoreDisplay = document.getElementById('score')
 const currentStreakDisplay = document.getElementById('current-streak')
 const longestStreakDisplay = document.getElementById('longest-streak')
 const resetStatsBtn = document.getElementById('reset-stats')
+const exampleColor = document.getElementById('example-color')
+const exampleRgb = document.getElementById('example-rgb')
+const exampleColorForm = document.getElementById('example-color-form')
+const sliderRed = document.getElementById('slider-red')
+const sliderGreen = document.getElementById('slider-green')
+const sliderBlue = document.getElementById('slider-blue')
 
 // event listeners ==========
 navigation.forEach(({ link }) =>
@@ -26,6 +32,7 @@ navigation.forEach(({ link }) =>
 )
 colors.forEach((color) => color.addEventListener('click', handleGuess))
 resetStatsBtn.addEventListener('click', resetStats)
+exampleColorForm.addEventListener('input', displayExampleColor)
 
 // event handlers ==========
 function handleNavigation(e) {
@@ -126,6 +133,14 @@ function startGame() {
   displayColors()
 }
 
+function displayExampleColor() {
+  const rgb = `rgb(${sliderRed.value}, ${sliderGreen.value}, ${sliderBlue.value})`
+
+  exampleColor.style.backgroundColor = rgb
+  exampleRgb.innerText = rgb
+}
+
 // on load ==========
-displayStats()
-startGame()
+displayStats() // stats page
+displayExampleColor() // about page
+startGame() // game page
