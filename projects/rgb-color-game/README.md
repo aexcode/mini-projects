@@ -1,6 +1,6 @@
 # RGB Color Game
 
-<!-- **Live Demo:** [https://codepen.io/aexcode/full/MWmZmmR](https://codepen.io/aexcode/full/MWmZmmR) -->
+**Live Demo:** [https://codepen.io/aexcode/full/vYmbQNe](https://codepen.io/aexcode/full/vYmbQNe)
 
 ![](./assets/rgb-color-game-01.png)
 
