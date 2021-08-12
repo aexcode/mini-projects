@@ -21,7 +21,7 @@ HTML | CSS | JavaScript
 
 ## Features:
 
-- [ ] Menu with information about the game
+- [x] Menu with information about the game
 - [x] Menu with game stats
 - [x] Tracks user's current and longest streak of correct answers
 - [x] Stores user's game stats in local storage
