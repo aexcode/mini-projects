@@ -6,10 +6,12 @@
 
 ## Screenshots
 
-<img src="./assets/rgb-color-game-01.png" width='200px'>
-<img src="./assets/rgb-color-game-02.png" width='200px'>
-<img src="./assets/rgb-color-game-03.png" width='200px'>
-<img src="./assets/rgb-color-game-04.png" width='200px'>
+<div>
+  <img src="./assets/rgb-color-game-01.png" width='200px'>
+  <img src="./assets/rgb-color-game-02.png" width='200px'>
+  <img src="./assets/rgb-color-game-03.png" width='200px'>
+  <img src="./assets/rgb-color-game-04.png" width='200px'>
+</div>
 
 ## Description:
 
