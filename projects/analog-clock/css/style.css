@@ -1,0 +1,185 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  background: #912f56;
+}
+@supports (display: grid) {
+  body,
+html {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 2.5%;
+}
+@supports (display: grid) {
+  .container {
+    margin-top: auto;
+  }
+}
+.container .canvas {
+  position: relative;
+  padding-top: 62.5%;
+}
+
+.analog {
+  width: 48%;
+  height: 78%;
+  position: absolute;
+  top: 3%;
+  left: 25%;
+  border-radius: 50%;
+  background: #202020;
+}
+.analog .clock-face {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  background: #fffafa;
+  border-radius: inherit;
+}
+.analog .clock-face .numbers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.analog .clock-face .numbers .twelve {
+  position: absolute;
+  font-family: "Playfair Display", serif;
+  font-size: 4vw;
+  top: 0;
+  left: 43%;
+}
+.analog .clock-face .numbers .three {
+  position: absolute;
+  font-family: "Playfair Display", serif;
+  font-size: 4vw;
+  top: 38%;
+  right: 5%;
+}
+.analog .clock-face .numbers .six {
+  position: absolute;
+  font-family: "Playfair Display", serif;
+  font-size: 4vw;
+  bottom: 3%;
+  left: 45%;
+}
+.analog .clock-face .numbers .nine {
+  position: absolute;
+  font-family: "Playfair Display", serif;
+  font-size: 4vw;
+  top: 38%;
+  left: 5%;
+}
+.analog .clock-face .ticks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.analog .clock-face .ticks span:nth-of-type(1) {
+  position: absolute;
+  width: 1%;
+  height: 90%;
+  top: 5%;
+  left: 49.5%;
+  background: linear-gradient(#202020 7%, transparent 7% 93%, #202020 93%);
+  transform: rotate(30deg);
+}
+.analog .clock-face .ticks span:nth-of-type(2) {
+  position: absolute;
+  width: 1%;
+  height: 90%;
+  top: 5%;
+  left: 49.5%;
+  background: linear-gradient(#202020 7%, transparent 7% 93%, #202020 93%);
+  transform: rotate(60deg);
+}
+.analog .clock-face .ticks span:nth-of-type(3) {
+  position: absolute;
+  width: 1%;
+  height: 90%;
+  top: 5%;
+  left: 49.5%;
+  background: linear-gradient(#202020 7%, transparent 7% 93%, #202020 93%);
+  transform: rotate(-30deg);
+}
+.analog .clock-face .ticks span:nth-of-type(4) {
+  position: absolute;
+  width: 1%;
+  height: 90%;
+  top: 5%;
+  left: 49.5%;
+  background: linear-gradient(#202020 7%, transparent 7% 93%, #202020 93%);
+  transform: rotate(-60deg);
+}
+.analog .clock-face .hands {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.analog .clock-face .hands:after {
+  content: "";
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  top: 47.5%;
+  left: 47.5%;
+  background: radial-gradient(#202020 40%, #912f56 40%);
+  border-radius: 50%;
+}
+.analog .clock-face .hands .hour-hand {
+  position: absolute;
+  transform-origin: bottom center;
+  width: 2%;
+  height: 25%;
+  bottom: 50%;
+  left: 49%;
+  background: #202020;
+}
+.analog .clock-face .hands .minute-hand {
+  position: absolute;
+  transform-origin: bottom center;
+  width: 2%;
+  height: 35%;
+  bottom: 50%;
+  left: 49%;
+  background: #202020;
+}
+.analog .clock-face .hands .second-hand {
+  position: absolute;
+  transform-origin: bottom center;
+  width: 2%;
+  height: 35%;
+  bottom: 50%;
+  left: 49%;
+  background: #912f56;
+}
+
+.digital {
+  position: absolute;
+  width: 100%;
+  bottom: 3%;
+  color: #fffafa;
+  opacity: 0.6;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 3vw;
+}
+
+/*# sourceMappingURL=style.css.map */

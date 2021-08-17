@@ -1,0 +1,196 @@
+$black: #202020;
+$magenta: #912f56;
+$white: #fffafa;
+
+$fontMain: 'Playfair Display', serif;
+$fontSecondary: 'Roboto', sans-serif;
+$fontSizeMain: 4vw;
+
+$tickMark: linear-gradient($black 7%, transparent 7% 93%, $black 93%);
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  background: $magenta;
+
+  @supports (display: grid) {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 2.5%;
+
+  @supports (display: grid) {
+    margin-top: auto;
+  }
+
+  .canvas {
+    position: relative;
+    padding-top: 62.5%;
+  }
+}
+
+.analog {
+  width: 48%;
+  height: 78%;
+  position: absolute;
+  top: 3%;
+  left: 25%;
+  border-radius: 50%;
+  background: $black;
+
+  .clock-face {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    background: $white;
+    border-radius: inherit;
+
+    .numbers {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+
+      @mixin sharedNumbers {
+        position: absolute;
+        font-family: $fontMain;
+        font-size: $fontSizeMain;
+      }
+
+      .twelve {
+        @include sharedNumbers;
+        top: 0;
+        left: 43%;
+      }
+
+      .three {
+        @include sharedNumbers;
+        top: 38%;
+        right: 5%;
+      }
+
+      .six {
+        @include sharedNumbers;
+        bottom: 3%;
+        left: 45%;
+      }
+
+      .nine {
+        @include sharedNumbers;
+        top: 38%;
+        left: 5%;
+      }
+    }
+
+    .ticks {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      @mixin sharedTick {
+        position: absolute;
+        width: 1%;
+        height: 90%;
+        top: 5%;
+        left: 49.5%;
+        background: $tickMark;
+      }
+
+      span:nth-of-type(1) {
+        @include sharedTick;
+        transform: rotate(30deg);
+      }
+
+      span:nth-of-type(2) {
+        @include sharedTick;
+        transform: rotate(60deg);
+      }
+
+      span:nth-of-type(3) {
+        @include sharedTick;
+        transform: rotate(-30deg);
+      }
+
+      span:nth-of-type(4) {
+        @include sharedTick;
+        transform: rotate(-60deg);
+      }
+    }
+
+    .hands {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 5%;
+        height: 5%;
+        top: 47.5%;
+        left: 47.5%;
+        background: radial-gradient($black 40%, $magenta 40%);
+        border-radius: 50%;
+      }
+
+      @mixin sharedHand {
+        position: absolute;
+        transform-origin: bottom center;
+      }
+
+      .hour-hand {
+        @include sharedHand;
+        width: 2%;
+        height: 25%;
+        bottom: 50%;
+        left: 49%;
+        background: $black;
+      }
+
+      .minute-hand {
+        @include sharedHand;
+        width: 2%;
+        height: 35%;
+        bottom: 50%;
+        left: 49%;
+        background: $black;
+      }
+
+      .second-hand {
+        @include sharedHand;
+        width: 2%;
+        height: 35%;
+        bottom: 50%;
+        left: 49%;
+        background: $magenta;
+      }
+    }
+  }
+}
+
+.digital {
+  position: absolute;
+  width: 100%;
+  bottom: 3%;
+  color: $white;
+  opacity: 0.6;
+  text-align: center;
+  font-family: $fontSecondary;
+  font-size: $fontSizeMain * 0.75;
+}
