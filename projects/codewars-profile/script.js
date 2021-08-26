@@ -26,26 +26,36 @@ function formatDate(date) {
 }
 
 async function init() {
-  displayUserLanguageData(
-    await fetch(userLanguageUrl).then((res) => res.json()),
+  const userLanguageData = await fetch(userLanguageUrl).then((res) =>
+    res.json(),
+  )
+  const recentSolvesData = await fetch(completedChallengesUrl).then((res) =>
+    res.json(),
   )
 
-  displayCompletedChallengesData(
-    await fetch(completedChallengesUrl).then((res) => res.json()),
-  )
+  replaceLinks()
+  displayUserData(userLanguageData)
+  displayLanguageData(userLanguageData)
+  displayRecentSolves(recentSolvesData)
 }
 
-function displayUserLanguageData(data) {
+function displayUserData(data) {
   // header data
   document.querySelector('#username').textContent = data.username
   document.querySelector('#display-name').textContent = data.name
 
+  console.log(data)
+}
+
+function replaceLinks() {
   // codewars profile links
   const codewarsLinks = [...document.querySelectorAll('.link-codewars')]
   codewarsLinks.forEach(
     (link) => (link.href = `https://codewars.com/users/${username}`),
   )
+}
 
+function displayLanguageData(data) {
   // language cards
   const languageDisplay = document.querySelector('#languages')
   const languages = [...Object.keys(data.ranks.languages)].map(
@@ -67,7 +77,7 @@ function displayUserLanguageData(data) {
   })
 }
 
-function displayCompletedChallengesData({ totalItems, data }) {
+function displayRecentSolves({ totalItems, data }) {
   const completedChallengesDisplay = document.querySelector('#recent-solves')
   const challenges = data.slice(0, 5)
 

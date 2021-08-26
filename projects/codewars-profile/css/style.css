@@ -61,7 +61,9 @@ h1,
   font-size: 3.052rem;
 }
 
-h2 {
+h2,
+.h2 {
+  text-align: center;
   font-size: 2.441rem;
 }
 
@@ -120,15 +122,26 @@ ul {
   padding: 2rem 1rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+      grid-template-areas: 'title' 'header' 'main' 'footer';
 }
 
 #container > * {
   padding: 1rem;
 }
 
+#title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: title;
+  margin: unset;
+  font-size: 2.441rem;
+  text-align: center;
+}
+
 header {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: header;
   text-align: center;
 }
 
@@ -150,12 +163,15 @@ header #codewars-logo img {
 }
 
 main {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: main;
   border-top: 2px solid var(--primary-600);
 }
 
-section > p,
-section > div,
-section > ul {
+main section > p,
+main section > div,
+main section > ul {
   padding: 0 1rem;
 }
 
@@ -202,7 +218,14 @@ section > ul {
   display: inline-block;
 }
 
+#progress-stats h3:nth-of-type(1) {
+  margin-top: 0;
+}
+
 footer {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: footer;
   text-align: center;
   margin-top: 2rem;
 }
@@ -223,12 +246,14 @@ footer {
 
 @media only screen and (min-width: 700px) {
   #container {
-    -ms-grid-columns: auto 1fr;
-        grid-template-columns: auto 1fr;
+        grid-template-areas: 'x title' 'header main' 'header footer';
   }
   #container > * {
     padding: unset;
     padding: 1rem 2rem;
+  }
+  #title {
+    font-size: 3.052rem;
   }
   main {
     border: unset;
