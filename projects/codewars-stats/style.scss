@@ -1,0 +1,279 @@
+:root {
+  --primary-400: hsl(10, 71%, 51%);
+  --primary-500: hsl(10, 71%, 41%);
+  --primary-600: hsl(10, 71%, 31%);
+  --secondary-300: hsl(217, 65%, 69%);
+  --secondary-600: hsl(217, 19%, 27%);
+  --neutral-100: hsl(0, 0%, 96%);
+  --neutral-400: hsl(225, 4%, 25%);
+  --neutral-500: hsl(225, 4%, 20%);
+  --neutral-600: hsl(220, 4%, 14%);
+
+  --font-main: 'Inconsolata', 'monospace';
+  --font-secondary: 'Lato', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: var(--neutral-500);
+  color: var(--neutral-100);
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  line-height: 1.75;
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: lowercase;
+  padding: 0 1rem;
+}
+
+h1,
+.h1 {
+  margin-top: 0;
+  font-size: 3.052rem;
+}
+
+h2,
+.h2 {
+  text-align: center;
+  font-size: 2.441rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.953rem;
+  background: linear-gradient(to right, var(--primary-400), var(--neutral-500));
+  border-radius: 5px;
+}
+
+h4 {
+  font-size: 1.563rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+small,
+.text--small {
+  font-size: 0.8rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--neutral-100);
+  font-family: var(--font-main);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-transform: lowercase;
+  padding: 0.5rem;
+
+  &:hover {
+    color: var(--primary-400);
+  }
+}
+
+.link-codewars {
+  &::before {
+    content: '<';
+  }
+
+  &::after {
+    content: '/>';
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-areas:
+    'title'
+    'header'
+    'main'
+    'footer';
+
+  > * {
+    padding: 1rem;
+  }
+}
+
+#title {
+  grid-area: title;
+  margin: unset;
+  font-size: 2.441rem;
+  text-align: center;
+}
+
+header {
+  grid-area: header;
+  text-align: center;
+
+  #username {
+    margin-bottom: unset;
+  }
+
+  #codewars-logo {
+    background: var(--primary-400);
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 10px;
+
+    img {
+      animation: threeSixty 20s linear infinite;
+    }
+  }
+}
+
+main {
+  grid-area: main;
+  border-top: 2px solid var(--primary-600);
+
+  section > p,
+  section > div,
+  section > ul {
+    padding: 0 1rem;
+  }
+}
+
+#progress-stats {
+  h3:nth-of-type(1) {
+    margin-top: 0;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-areas:
+      'a'
+      'b';
+
+    gap: 1rem;
+  }
+}
+
+#language-stats {
+  #languages {
+    display: flex;
+    gap: 1rem;
+
+    .language-card {
+      width: 100%;
+      min-width: 100px;
+      max-width: 150px;
+      text-align: center;
+      padding: 1rem 0;
+      border-radius: 3px;
+      box-shadow: 3px 3px 3px var(--neutral-600);
+      background: var(--neutral-400);
+    }
+  }
+}
+
+#challenge-stats {
+  #recent-solves {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    li {
+      width: 100%;
+    }
+
+    a,
+    small {
+      display: block;
+      padding: unset;
+      padding: 0.2rem 0;
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+footer {
+  grid-area: footer;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+// keyframes ==========
+@keyframes threeSixty {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+// media queries ==========
+@media only screen and (min-width: 700px) {
+  #container {
+    grid-template-areas:
+      'x title'
+      'header main'
+      'header footer';
+
+    > * {
+      padding: unset;
+      padding: 1rem 2rem;
+    }
+  }
+
+  #title {
+    font-size: 3.052rem;
+  }
+
+  #progress-stats {
+    .stats {
+      display: grid;
+      grid-template-areas: 'a b';
+    }
+  }
+
+  main {
+    border: unset;
+    border-left: 2px solid var(--primary-400);
+  }
+
+  footer {
+    text-align: right;
+  }
+}
