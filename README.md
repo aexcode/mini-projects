@@ -1,5 +1,10 @@
 # Mini Projects
 
+[![Codewars Stats](./projects/codewars-stats/assets/screenshot.png)](https://github.com/aexcode/mini-projects/tree/main/projects/rgb-color-game)
+**Codewars Stats** - HTML, CSS, JavaScript, API \
+[Codepen](https://codepen.io/aexcode/full/JjJdyvw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/codewars-stats) - August 12, 2021
+
+---
 
 [![RGB Color Game](https://i.imgur.com/7vd1gou.png)](https://github.com/aexcode/mini-projects/tree/main/projects/rgb-color-game)
 **RGB Color Game** - HTML, CSS, JavaScript \
@@ -18,7 +23,6 @@
 [Codepen](https://codepen.io/aexcode/full/MWmZmmR) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/calculator) - August 10, 2021
 
 ---
-
 
 [![Analog Clock](./projects/analog-clock/assets/screenshot.png)](https://github.com/aexcode/mini-projects/tree/main/projects/analog-clock)
 **Analog Clock** - HTML, SCSS, JavaScript \
