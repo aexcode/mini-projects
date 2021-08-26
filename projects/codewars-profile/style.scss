@@ -10,6 +10,7 @@
   --neutral-600: hsl(220, 4%, 14%);
 
   --font-main: 'Inconsolata', 'monospace';
+  --font-secondary: 'Lato', sans-serif;
 }
 
 *,
@@ -27,7 +28,7 @@ html {
 body {
   background: var(--neutral-500);
   color: var(--neutral-100);
-  font-family: var(--font-main);
+  font-family: var(--font-secondary);
   font-weight: 400;
   line-height: 1.75;
   display: flex;
@@ -89,6 +90,7 @@ img {
 
 a {
   color: var(--neutral-100);
+  font-family: var(--font-main);
   text-decoration: underline;
   text-underline-offset: 0.2rem;
   text-transform: lowercase;
@@ -111,6 +113,10 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 #container {
@@ -168,6 +174,17 @@ main {
   }
 }
 
+#progress-stats {
+  h3:nth-of-type(1) {
+    margin-top: 0;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
 #language-stats {
   #languages {
     display: flex;
@@ -209,12 +226,6 @@ main {
   }
 }
 
-#progress-stats {
-  h3:nth-of-type(1) {
-    margin-top: 0;
-  }
-}
-
 footer {
   grid-area: footer;
   text-align: center;
@@ -244,6 +255,12 @@ footer {
 
   #title {
     font-size: 3.052rem;
+  }
+
+  #progress-stats {
+    .stats > * {
+      width: 50%;
+    }
   }
 
   main {

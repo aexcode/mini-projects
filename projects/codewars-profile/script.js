@@ -34,14 +34,36 @@ function replaceLinks() {
 
 function displayHeaderData(data) {
   document.querySelector('#username').textContent = data.username
-  document.querySelector('#display-name').textContent = data.name
+  document.querySelector('#display-name').textContent = data.displayName
 }
 
-function displayUserProgress(data) {
-  console.log(data)
+function displayProgressData(data) {
+  const progressStatsDisplay = document.querySelector('.stats')
+  progressStatsDisplay.innerHTML = `
+		<div>
+			<div class="stat"><span class="bold">Rank:</span>	${data.rank}</div>
+			<div class="stat"><span class="bold">Honor:</span>	${data.honor}</div>
+			<div class="stat"><span class="bold">Leaderboard Position:</span>	${data.leaderboardPosition}</div>
+			<div class="stat"><span class="bold">Last Seen:</span>	${data.lastSeen}</div>
+			</div>
+			<div>
+			<div class="stat"><span class="bold">Total Completed Kata:</span>	${data.totalCompletedKata}</div>
+			<div class="stat"><span class="bold">Total Languages Trained:</span>	${data.totalLanguagesTrained}</div>
+			<div class="stat"><span class="bold">Highest Trained:</span>	<i class="devicon-${data.highestTrained}-plain"></i> ${data.highestTrained}</div>
+			<div class="stat"><span class="bold">Most Recent:</span>	<i class="devicon-${data.mostRecent}-plain"></i> ${data.mostRecent}</div>
+		</div>
+	`
+  console.log(
+    data.rank,
+    data.honor,
+    data.leaderboardPosition,
+    data.totalCompletedKata,
+    data.lastSeen,
+    data.totalLanguagesTrained,
+    data.highestTrained,
+    data.mostRecent,
+  )
 }
-
-function displayLanguageProgress(data) {}
 
 function displayLanguageCards({ languages }) {
   const languageDisplay = document.querySelector('#languages')
@@ -53,8 +75,8 @@ function displayLanguageCards({ languages }) {
   		<div class="language-icon">
     		<i class="h1 devicon-${language.language}-plain"></i>
     		<p>${language.language}</p>
-  			<small>Rank: ${language.name}</small><br />
-  			<small>Score: ${language.score}</small>
+  			<small><span class="bold">Rank:</span> ${language.name}</small><br />
+  			<small><span class="bold">Score:</span> ${language.score}</small>
     	</div>
   	`
     languageDisplay.append(languageCard)
@@ -108,8 +130,8 @@ async function getData() {
     leaderboardPosition: userData.leaderboardPosition,
     totalCompletedKata: userData.codeChallenges.totalCompleted,
     highestTrained: Object.keys(userData.ranks.languages)[0],
-    totalTrained: Object.keys(userData.ranks.languages).length,
-    lastTrained: completedData.data[0].completedLanguages[0],
+    totalLanguagesTrained: Object.keys(userData.ranks.languages).length,
+    mostRecent: completedData.data[0].completedLanguages[0],
     lastSeen: formatDate(completedData.data[0].completedAt),
     languages: [...Object.keys(userData.ranks.languages)].map(
       (name) => (name = { language: name, ...userData.ranks.languages[name] }),
@@ -123,8 +145,7 @@ async function init() {
 
   replaceLinks()
   displayHeaderData(data)
-  displayUserProgress(data)
-  displayLanguageProgress(data)
+  displayProgressData(data)
   displayLanguageCards(data)
   displayRecentSolves(data)
 }
