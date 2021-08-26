@@ -1,21 +1,47 @@
-const baseURL = `https://www.codewars.com/api/v1/users/`
 const username = `aexcode`
+const userLanguageUrl = `https://www.codewars.com/api/v1/users/${username}`
+const completedChallengesUrl = `https://www.codewars.com/api/v1/users/${username}/code-challenges/completed?page=0`
 
-function createDevicon(id) {
-  return `<i class="devicon-${id}-original"></i>`
+function formatDate(date) {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+
+  const newDate = new Date(date)
+
+  return `${
+    months[newDate.getMonth()]
+  } ${newDate.getDate()}, ${newDate.getFullYear()}`
 }
 
-async function getData() {
-  displayData(await fetch(baseURL + username).then((res) => res.json()))
+async function init() {
+  displayUserLanguageData(
+    await fetch(userLanguageUrl).then((res) => res.json()),
+  )
+
+  displayCompletedChallengesData(
+    await fetch(completedChallengesUrl).then((res) => res.json()),
+  )
 }
 
-function displayData(data) {
+function displayUserLanguageData(data) {
   // header data
   document.querySelector('#username').textContent = data.username
   document.querySelector('#display-name').textContent = data.name
 
   // codewars profile links
-  const codewarsLinks = [...document.querySelectorAll('.codewars-link')]
+  const codewarsLinks = [...document.querySelectorAll('.link-codewars')]
   codewarsLinks.forEach(
     (link) => (link.href = `https://codewars.com/users/${username}`),
   )
@@ -41,4 +67,38 @@ function displayData(data) {
   })
 }
 
-getData()
+function displayCompletedChallengesData({ totalItems, data }) {
+  const completedChallengesDisplay = document.querySelector('#recent-solves')
+  const challenges = data.slice(0, 5)
+
+  // create card for each challenge
+  challenges.forEach((challenge) => {
+    const challengeCard = document.createElement('li')
+
+    // add challenge name, link, and completedAt date to card
+    challengeCard.innerHTML = `
+		<a href="https://www.codewars.com/kata/${challenge.slug}">
+  		${challenge.name}
+  	</a>
+  	<small>${formatDate(challenge.completedAt)}</small>
+		`
+    // add completed languages to card
+    const completedLanguages = document.createElement('ul')
+    challenge.completedLanguages.forEach((language) => {
+      const completedLanguageCard = document.createElement('li')
+      completedLanguageCard.innerHTML = `
+				<span>
+					<i class="devicon-${language}-plain"></i>
+    			${language}
+				</span>
+		`
+      completedLanguages.append(completedLanguageCard)
+    })
+    challengeCard.append(completedLanguages)
+
+    // add challenge card to display
+    completedChallengesDisplay.append(challengeCard)
+  })
+}
+
+init()

@@ -40,7 +40,6 @@ body {
 
 p {
   margin-bottom: 1rem;
-  padding: 0 1rem;
 }
 
 h1,
@@ -99,16 +98,20 @@ a {
   padding: 0.5rem;
 }
 
-a::before {
+a:hover {
+  color: var(--primary-400);
+}
+
+.link-codewars::before {
   content: '<';
 }
 
-a::after {
+.link-codewars::after {
   content: '/>';
 }
 
-a:hover {
-  color: var(--primary-400);
+ul {
+  list-style-type: none;
 }
 
 #container {
@@ -127,7 +130,6 @@ a:hover {
 
 header {
   text-align: center;
-  border-bottom: 2px solid var(--primary-600);
 }
 
 header #username {
@@ -147,16 +149,27 @@ header #codewars-logo img {
           animation: threeSixty 20s linear infinite;
 }
 
+main {
+  border-top: 2px solid var(--primary-600);
+}
+
+section > p,
+section > div,
+section > ul {
+  padding: 0 1rem;
+}
+
 #language-stats #languages {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1rem;
-  list-style: none;
 }
 
 #language-stats #languages .language-card {
-  width: 150px;
+  width: 100%;
+  min-width: 100px;
+  max-width: 150px;
   text-align: center;
   padding: 1rem 0;
   border-radius: 3px;
@@ -165,8 +178,33 @@ header #codewars-logo img {
   background: var(--neutral-400);
 }
 
+#challenge-stats #recent-solves {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
+#challenge-stats #recent-solves li {
+  width: 100%;
+}
+
+#challenge-stats #recent-solves a,
+#challenge-stats #recent-solves small {
+  display: block;
+  padding: unset;
+  padding: 0.2rem 0;
+}
+
+#challenge-stats #recent-solves span {
+  display: inline-block;
+}
+
 footer {
   text-align: center;
+  margin-top: 2rem;
 }
 
 @-webkit-keyframes threeSixty {
@@ -192,9 +230,9 @@ footer {
     padding: unset;
     padding: 1rem 2rem;
   }
-  header {
+  main {
     border: unset;
-    border-right: 2px solid var(--primary-400);
+    border-left: 2px solid var(--primary-400);
   }
   footer {
     text-align: right;

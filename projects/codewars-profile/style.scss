@@ -36,7 +36,6 @@ body {
 
 p {
   margin-bottom: 1rem;
-  padding: 0 1rem;
 }
 
 h1,
@@ -93,6 +92,12 @@ a {
   text-transform: lowercase;
   padding: 0.5rem;
 
+  &:hover {
+    color: var(--primary-400);
+  }
+}
+
+.link-codewars {
   &::before {
     content: '<';
   }
@@ -100,10 +105,10 @@ a {
   &::after {
     content: '/>';
   }
+}
 
-  &:hover {
-    color: var(--primary-400);
-  }
+ul {
+  list-style-type: none;
 }
 
 #container {
@@ -120,7 +125,6 @@ a {
 
 header {
   text-align: center;
-  border-bottom: 2px solid var(--primary-600);
 
   #username {
     margin-bottom: unset;
@@ -139,14 +143,25 @@ header {
   }
 }
 
+main {
+  border-top: 2px solid var(--primary-600);
+}
+
+section > p,
+section > div,
+section > ul {
+  padding: 0 1rem;
+}
+
 #language-stats {
   #languages {
     display: flex;
     gap: 1rem;
-    list-style: none;
 
     .language-card {
-      width: 150px;
+      width: 100%;
+      min-width: 100px;
+      max-width: 150px;
       text-align: center;
       padding: 1rem 0;
       border-radius: 3px;
@@ -156,8 +171,32 @@ header {
   }
 }
 
+#challenge-stats {
+  #recent-solves {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    li {
+      width: 100%;
+    }
+
+    a,
+    small {
+      display: block;
+      padding: unset;
+      padding: 0.2rem 0;
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
 footer {
   text-align: center;
+  margin-top: 2rem;
 }
 
 // keyframes ==========
@@ -178,9 +217,9 @@ footer {
     }
   }
 
-  header {
+  main {
     border: unset;
-    border-right: 2px solid var(--primary-400);
+    border-left: 2px solid var(--primary-400);
   }
 
   footer {
