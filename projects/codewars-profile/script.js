@@ -25,42 +25,26 @@ function formatDate(date) {
   } ${newDate.getDate()}, ${newDate.getFullYear()}`
 }
 
-async function init() {
-  const userLanguageData = await fetch(userLanguageUrl).then((res) =>
-    res.json(),
-  )
-  const recentSolvesData = await fetch(completedChallengesUrl).then((res) =>
-    res.json(),
-  )
-
-  replaceLinks()
-  displayUserData(userLanguageData)
-  displayLanguageData(userLanguageData)
-  displayRecentSolves(recentSolvesData)
-}
-
-function displayUserData(data) {
-  // header data
-  document.querySelector('#username').textContent = data.username
-  document.querySelector('#display-name').textContent = data.name
-
-  console.log(data)
-}
-
 function replaceLinks() {
-  // codewars profile links
   const codewarsLinks = [...document.querySelectorAll('.link-codewars')]
   codewarsLinks.forEach(
     (link) => (link.href = `https://codewars.com/users/${username}`),
   )
 }
 
-function displayLanguageData(data) {
-  // language cards
+function displayHeaderData(data) {
+  document.querySelector('#username').textContent = data.username
+  document.querySelector('#display-name').textContent = data.name
+}
+
+function displayUserProgress(data) {
+  console.log(data)
+}
+
+function displayLanguageProgress(data) {}
+
+function displayLanguageCards({ languages }) {
   const languageDisplay = document.querySelector('#languages')
-  const languages = [...Object.keys(data.ranks.languages)].map(
-    (name) => (name = { language: name, ...data.ranks.languages[name] }),
-  )
 
   languages.forEach((language) => {
     const languageCard = document.createElement('li')
@@ -77,12 +61,11 @@ function displayLanguageData(data) {
   })
 }
 
-function displayRecentSolves({ totalItems, data }) {
+function displayRecentSolves({ recentSolves }) {
   const completedChallengesDisplay = document.querySelector('#recent-solves')
-  const challenges = data.slice(0, 5)
 
   // create card for each challenge
-  challenges.forEach((challenge) => {
+  recentSolves.forEach((challenge) => {
     const challengeCard = document.createElement('li')
 
     // add challenge name, link, and completedAt date to card
@@ -109,6 +92,41 @@ function displayRecentSolves({ totalItems, data }) {
     // add challenge card to display
     completedChallengesDisplay.append(challengeCard)
   })
+}
+
+async function getData() {
+  const userData = await fetch(userLanguageUrl).then((res) => res.json())
+  const completedData = await fetch(completedChallengesUrl).then((res) =>
+    res.json(),
+  )
+
+  return {
+    username: userData.username,
+    displayName: userData.name,
+    rank: userData.ranks.overall.name,
+    honor: userData.honor,
+    leaderboardPosition: userData.leaderboardPosition,
+    totalCompletedKata: userData.codeChallenges.totalCompleted,
+    highestTrained: Object.keys(userData.ranks.languages)[0],
+    totalTrained: Object.keys(userData.ranks.languages).length,
+    lastTrained: completedData.data[0].completedLanguages[0],
+    lastSeen: formatDate(completedData.data[0].completedAt),
+    languages: [...Object.keys(userData.ranks.languages)].map(
+      (name) => (name = { language: name, ...userData.ranks.languages[name] }),
+    ),
+    recentSolves: completedData.data.slice(0, 5),
+  }
+}
+
+async function init() {
+  const data = await getData()
+
+  replaceLinks()
+  displayHeaderData(data)
+  displayUserProgress(data)
+  displayLanguageProgress(data)
+  displayLanguageCards(data)
+  displayRecentSolves(data)
 }
 
 init()
