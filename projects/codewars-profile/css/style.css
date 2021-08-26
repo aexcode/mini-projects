@@ -186,11 +186,10 @@ main section > ul {
 }
 
 #progress-stats .stats {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'a' 'b';
+  gap: 1rem;
 }
 
 #language-stats #languages {
@@ -269,8 +268,10 @@ footer {
   #title {
     font-size: 3.052rem;
   }
-  #progress-stats .stats > * {
-    width: 50%;
+  #progress-stats .stats {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: 'a b';
   }
   main {
     border: unset;

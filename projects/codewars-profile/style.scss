@@ -180,8 +180,12 @@ main {
   }
 
   .stats {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-areas:
+      'a'
+      'b';
+
+    gap: 1rem;
   }
 }
 
@@ -258,8 +262,9 @@ footer {
   }
 
   #progress-stats {
-    .stats > * {
-      width: 50%;
+    .stats {
+      display: grid;
+      grid-template-areas: 'a b';
     }
   }
 
