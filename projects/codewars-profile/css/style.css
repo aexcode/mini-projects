@@ -5,7 +5,7 @@
   --secondary-300: hsl(217, 65%, 69%);
   --secondary-600: hsl(217, 19%, 27%);
   --neutral-100: hsl(0, 0%, 96%);
-  --neutral-400: hsl(0, 0%, 24%);
+  --neutral-400: hsl(225, 4%, 25%);
   --neutral-500: hsl(225, 4%, 20%);
   --neutral-600: hsl(220, 4%, 14%);
   --font-main: 'Inconsolata', 'monospace';
@@ -69,8 +69,8 @@ h2 {
 h3,
 .h3 {
   font-size: 1.953rem;
-  background: -webkit-gradient(linear, left top, right top, from(var(--primary-500)), to(var(--neutral-500)));
-  background: linear-gradient(to right, var(--primary-500), var(--neutral-500));
+  background: -webkit-gradient(linear, left top, right top, from(var(--primary-400)), to(var(--neutral-500)));
+  background: linear-gradient(to right, var(--primary-400), var(--neutral-500));
   border-radius: 5px;
 }
 
@@ -135,7 +135,7 @@ header #username {
 }
 
 header #codewars-logo {
-  background: var(--primary-500);
+  background: var(--primary-400);
   width: 200px;
   height: 200px;
   margin: auto;
@@ -145,6 +145,24 @@ header #codewars-logo {
 header #codewars-logo img {
   -webkit-animation: threeSixty 20s linear infinite;
           animation: threeSixty 20s linear infinite;
+}
+
+#language-stats #languages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+#language-stats #languages .language-card {
+  width: 150px;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 3px;
+  -webkit-box-shadow: 3px 3px 3px var(--neutral-600);
+          box-shadow: 3px 3px 3px var(--neutral-600);
+  background: var(--neutral-400);
 }
 
 footer {
@@ -176,7 +194,7 @@ footer {
   }
   header {
     border: unset;
-    border-right: 2px solid var(--primary-500);
+    border-right: 2px solid var(--primary-400);
   }
   footer {
     text-align: right;
