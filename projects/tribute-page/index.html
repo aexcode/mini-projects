@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google fonts: lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Robert Johnson Tribute Page</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1 id="title">Robert Johnson</h1>
+        <p>The man who sold his soul to the devil</p>
+      </header>
+      <main id="main">
+        <header class="hero">
+          <figure id="img-div">
+            <img
+              id="image"
+              src="./assets/robert-johnson.jpg"
+              alt="Robert Johnson"
+            />
+            <figcaption id="img-caption">
+              One of only three verified photos of Robert Johnson
+            </figcaption>
+          </figure>
+
+          <figure id="playlist-wrapper">
+            <iframe
+              id="playlist"
+              src="https://open.spotify.com/embed/artist/0f8MDDzIc6M4uH1xH0o0gy"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+          </figure>
+        </header>
+
+        <figure>
+          <blockquote cite="https://www.biography.com/musician/robert-johnson">
+            <p>
+              Legend has it that Johnson took his guitar to the crossroads of
+              Highways 49 and 61 in Clarksdale, Mississippi, where the devil
+              retuned his guitar in exchange for his soul.
+            </p>
+          </blockquote>
+          <figcaption class="citation">
+            Biography.com Editors,
+            <cite>Robert Johnson Biography</cite>
+          </figcaption>
+        </figure>
+        <section id="tribute-info">
+          <h2>Who is Robert Johnson?</h2>
+        </section>
+        <aside>
+          <div>
+            Read more about Robert Johnson at
+            <a
+              id="tribute-link"
+              href="https://www.biography.com/musician/robert-johnson"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Biography.com
+            </a>
+          </div>
+          <div>
+            Watch the Netflix film,
+            <a
+              href="https://www.netflix.com/TITLE/80191049"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ReMastered: Devil at the Crossroads
+            </a>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <!-- custom javascript -->
+    <script src="script.js"></script>
+    <!-- freecodecamp test suite -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
