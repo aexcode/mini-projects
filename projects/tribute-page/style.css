@@ -1,3 +1,11 @@
+:root {
+  --neutral-100: hsl(0, 0%, 96%);
+  --neutral-300: hsl(0, 0%, 86%);
+
+  --font-main: 'Lora', serif;
+  --border-radius: 3px;
+}
+
 *,
 *::before,
 *::after {
@@ -9,7 +17,7 @@ html {
 }
 
 body {
-  background: white;
+  background: var(--neutral-100);
   font-family: 'Lora', serif;
   font-weight: 400;
   line-height: 1.75;
@@ -26,8 +34,8 @@ h3,
 h4,
 h5 {
   margin: 3rem 0 1.38rem;
-  font-family: 'Merriweather', serif;
-  font-weight: 400;
+  font-family: var(--font-main);
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -57,6 +65,14 @@ figcaption {
   font-size: 0.8rem;
 }
 
+#container {
+  padding: 36px;
+}
+
+#page-header {
+  text-align: center;
+}
+
 .hero {
   display: flex;
   justify-content: center;
@@ -79,6 +95,8 @@ figcaption {
   display: block;
   width: 100%;
   max-width: 390px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 #img-caption {
@@ -87,8 +105,11 @@ figcaption {
   align-items: center;
   justify-content: center;
   background: hsl(0, 0%, 6%);
-  color: whitesmoke;
+  color: var(--neutral-100);
   padding: 10px;
+
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 #playlist-wrapper {
@@ -102,10 +123,11 @@ figcaption {
   width: 100%;
   max-width: 390px;
   height: 390px;
+  border-radius: var(--border-radius);
 }
 
 blockquote {
-  margin-left: 2.5rem;
+  margin-left: 1rem;
 }
 
 blockquote > p::before {
@@ -119,7 +141,7 @@ blockquote > p::after {
 }
 
 .citation {
-  margin-left: 2.5rem;
+  margin-left: 1rem;
 }
 .citation::before {
   content: '-';

@@ -2,7 +2,7 @@
 
 [![Codewars Stats](./projects/codewars-stats/assets/screenshot.png)](https://github.com/aexcode/mini-projects/tree/main/projects/rgb-color-game)
 **Codewars Stats** - HTML, CSS, JavaScript, API \
-[Codepen](https://codepen.io/aexcode/full/JjJdyvw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/codewars-stats) - August 26, 2021
+[Codepen](https://codepen.io/aexcode/full/JjJdyvw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/rgb-color-game) - August 12, 2021
 
 ---
 
