@@ -2,7 +2,7 @@
 
 [![Robert Johnson Tribute Page](./projects/tribute-page/assets/screenshot.png)](https://github.com/aexcode/mini-projects/tree/main/projects/tribute-page)
 **Robert Johnson Tribute Page** - HTML, CSS \
-[Codepen](https://codepen.io/aexcode/full/ZEypJYw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/tribute-page) - August 12, 2021
+[Codepen](https://codepen.io/aexcode/full/ZEypJYw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/tribute-page) - September 4, 2021
 
 ---
 
