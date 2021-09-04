@@ -1,8 +1,14 @@
 # Mini Projects
 
-[![Codewars Stats](./projects/codewars-stats/assets/screenshot.png)](https://github.com/aexcode/mini-projects/tree/main/projects/rgb-color-game)
+[![Robert Johnson Tribute Page](./projects/tribute-page/assets/screenshot.png)](https://github.com/aexcode/mini-projects/tree/main/projects/tribute-page)
+**Robert Johnson Tribute Page** - HTML, CSS \
+[Codepen](https://codepen.io/aexcode/full/ZEypJYw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/tribute-page) - August 12, 2021
+
+---
+
+[![Codewars Stats](./projects/codewars-stats/assets/screenshot.png)](https://github.com/aexcode/mini-projects/tree/main/projects/codewars-stats)
 **Codewars Stats** - HTML, CSS, JavaScript, API \
-[Codepen](https://codepen.io/aexcode/full/JjJdyvw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/rgb-color-game) - August 12, 2021
+[Codepen](https://codepen.io/aexcode/full/JjJdyvw) | [Github](https://github.com/aexcode/mini-projects/tree/main/projects/codewars-stats) - August 12, 2021
 
 ---
 
